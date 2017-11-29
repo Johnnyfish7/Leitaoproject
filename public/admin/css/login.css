@@ -1,0 +1,14 @@
+.bg_color{
+    background-color:  #222d32;
+}
+.login_panel{
+    margin-top: 300px;
+}
+
+.login_panel .title{
+    background-color: #337ab7;
+    /* border-color: #337ab7; */
+    text-align: center;
+    font-size: 18px;
+
+}
