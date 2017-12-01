@@ -37,13 +37,13 @@
                             <span class="glyphicon glyphicon-list"> </span>
                             分类管理
                     </a>
-                    <div class="child" style="display:none">
+                    <div class="child" style="display:block">
                         <a href="first.html">一级分类</a>
                         <a href="second.html">二级分类</a>
                     </div>
                 </li>
                 <li>
-                    <a href="javascript:;">
+                    <a href="product.html">
                                 <span class="glyphicon glyphicon-tags"> </span>
                                 商品管理
                     </a>
@@ -66,21 +66,68 @@
             <div class="main-nav">
                 <ol class="breadcrumb">
                     <li><a href="#">管理系统</a></li>
-                    <li><a href="#">首页</a></li>
-                    <!-- <li class="active">Data</li> -->
+                    <li><a href="#">分类管理</a></li>
+                    <li class="active">一级分类</li>
                 </ol>
             </div>
 
-            <!-- echarts -->
-            <div id="mypic1"></div>
-            <div id="mypic2"></div>
+            <!-- 添加分类 -->
+            <button class="add_category btn btn-default">添加分类</button>
+            <!-- 表格 后台渲染出来 -->
+
+            <table class="table table-bordered mytable">
+                <thead>
+                    <td width="30%">序号</td>
+                    <td width="70%">分类名称</td>
+
+                </thead>
+                <tbody>
+                    <!-- 挖个坑 -->
+
+
+                </tbody>
+            </table>
+
+            <ul id="firstpaginator"></ul>
+
+
+
+
 
         </div>
     </div>
 
 
+    <!--添加分类 模态框 -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="add_Modal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="categoryName" placeholder="请输入一级分类">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary btn_add">添加</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
-    <!-- 模态框 -->
+
+
+
+    <!--退出 模态框 -->
     <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -89,10 +136,9 @@
                     <h4 class="modal-title">温馨提示</h4>
                 </div>
                 <div class="modal-body">
-                    
+
                     <p>
-                        <span class="glyphicon glyphicon-info-sign"></span>
-                         您确定要退出后台管理系统吗？
+                        <span class="glyphicon glyphicon-info-sign"></span> 您确定要退出后台管理系统吗？
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -105,13 +151,28 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+
+    <!-- 活动模板 -->
+    <script type="text/html" id="first_tpl">
+        {{each rows v i}}
+        <tr>
+            <td>{{(page-1)*size+i+1}}</td>
+            <td>{{v.categoryName}}</td>
+        </tr>
+        {{/each}}
+
+    </script>
+
+
+
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+    <script src="lib/artTemplate/template-web.js"></script>
     <script src="lib/nprogress/nprogress.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/index.js"></script>
-    <script src="lib/echarts/echarts.min.js"></script>
+    <script src="js/first.js"></script>
 </body>
 
 </html>
